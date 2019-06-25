@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Translator list</title>
+      
+  
+      <th:block th:include="/_header"></th:block>
+  
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+   
+      <div class="container" style="margin-top:50px">
+      
+      <th:block th:include="/translator/_translatormenu"></th:block>
+
+	      <h1>Translator list</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div class="row">
+	         <table border="1" class="table">
+	            <tr>
+	               <th>ID</th>
+	               <th>Content</th>
+	               <th>Vietnamese</th>
+	               <th>Japanese</th>
+	               <th>Portuguese</th>
+	               <th>Indonesian</th>
+	               <th>Status</th>
+	               <th>Author</th>
+	               <th>CreateDate</th>
+	               <th>UpdateDate</th>
+	               <th>View | Edit | Delete</th>
+	               
+	               
+	            </tr>
+	             <tr th:each ="translator : ${translators}">
+	               <td th:utext="${translator.id}">...</td>
+	               <td th:utext="${translator.content}">...</td>
+	               <td th:utext="${translator.getVietnamese()}">...</td>
+	               <td th:utext="${translator.getJapanese()}">...</td>
+	               <td th:utext="${translator.getPortuguese()}">...</td>
+	               <td th:utext="${translator.getIndonesian()}">...</td>
+	               <td th:utext="${translator.getStatus()}">...</td>
+	               <td th:utext="${translator.getAuthorName()}">...</td>
+	               <td th:utext="${translator.getCreateDate()}">...</td>
+	               <td th:utext="${translator.getUpdateDate()}">...</td>
+	              <td> 
+	               <a th:href="@{/translator/detail/{id}(id=${translator.getId()})}">View</a>
+	               |
+	               <a th:href="@{/translator/edit/{id}(id=${translator.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/translator/delete/{id}(id=${translator.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      
+      </div>
+      
+      <th:block th:include="/_footer"></th:block>
+   </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Sound List</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+	       <th:block th:include="/sound/_soundmenu"></th:block>
+	   
+	      <h1>Sound List</h1>
+	      
+	      <br/><br/>
+	      <div>
+	         <table border="1" class="table">
+	            <tr>
+	               <th>Name</th>
+	               <th>Url</th>
+	               <th>Description</th>
+	               <th>Author</th>
+	               <th>CreateDate</th>
+	               <th>UpdateDate</th>
+	               <th>View | Edit | Delete</th>
+	               
+	            </tr>
+	             <tr th:each ="sound : ${sounds}">
+	               <td th:utext="${sound.name}">...</td>
+	               <td > 
+	               	<img th:src="${sound.getUrl()}" th:alt="${sound.getUri()}" height="96" width="96">
+	               </td>
+	               <td th:utext="${sound.description}">...</td>
+	               <td th:utext="${sound.getAuthorName()}">...</td>
+	               <td th:utext="${sound.createDate}">...</td>
+	               <td th:utext="${sound.updateDate}">...</td>
+	               <td> 
+	               <a th:href="@{/sound/edit/{id}(id=${sound.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/sound/detail/{id}(id=${sound.getId()})}">View</a>
+	               |
+	               <a th:href="@{/sound/delete/{id}(id=${sound.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      </div>
+   </body>
+</html>

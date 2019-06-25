@@ -1,0 +1,32 @@
+<div  xmlns:th="http://www.thymeleaf.org">
+      
+    <ul class="nav nav-tabs">
+  <li th:class="${actioncode == 'List'} ? 'active' : ''"><a th:href="@{/topic/index}">Topics</a></li>
+  <li th:class="${actioncode == 'TopicEla'} ? 'active dropdown' : 'dropdown'">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">ELAs
+    <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a th:href="@{/topic/index/1}">List</a></li>
+      <li><a th:href="@{/topic/add/1}">Add new english test topic</a></li>
+    </ul>
+  </li>
+  <li th:class="${actioncode == 'TopicMath'} ? 'active dropdown' : 'dropdown'">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Maths
+    <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a th:href="@{/topic/index/2}">List</a></li>
+      
+    </ul>
+  </li>
+  
+  <li th:class="${actioncode == 'TopicStory'} ? 'active dropdown' : 'dropdown'">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Story
+    <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a th:href="@{/topic/index/3}">List</a></li>
+      <li><a th:href="@{/topic/add/3}">Add new story topic</a></li>
+    </ul>
+  </li>
+  
+</ul>
+ </div>

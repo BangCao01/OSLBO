@@ -1,0 +1,13 @@
+  
+  .panel {
+      border: 0px solid #f4511e;
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+      width:33.3333%;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  
+  
+  

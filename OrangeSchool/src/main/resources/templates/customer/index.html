@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Customer List</title>
+      
+  
+      <th:block th:include="/_header"></th:block>
+  
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+   
+      <div class="container" style="margin-top:50px">
+      <th:block th:include="/customer/_customermenu"></th:block>
+	      <h1>Customer List</h1>
+	      <br/><br/>
+	      <div class="row">
+	         <table border="1" class="table">
+	            <tr>
+	               <th>Username</th>
+	               <th>Status</th>
+	               <th>Phone numer</th>
+	               <th>Address</th>
+	               <th>Email</th>
+	               <th>Created Date</th>
+	               <th>Updated Date</th>
+	               <th>View | Edit | Delete </th>
+	            </tr>
+	             <tr th:each ="customer : ${customers}">
+	               <td th:utext="${customer.username}">...</td>
+	               <td th:utext="${customer.status}">...</td>
+	               <td th:utext="${customer.phonenumber}">...</td>
+	               <td th:utext="${customer.address}">...</td>
+	               <td th:utext="${customer.email}">...</td>
+	               <td th:utext="${customer.createDate}">...</td>
+	               <td th:utext="${customer.updateDate}">...</td>
+	               <td> 
+	               <a th:href="@{/customer/detail/{id}(id=${customer.getId()})}">View</a>
+	               |
+	               <a th:href="@{/customer/edit/{id}(id=${customer.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/customer/delete/{id}(id=${customer.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      
+      </div>
+      
+      <th:block th:include="/_footer"></th:block>
+   </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Category List</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+	       <th:block th:include="/category/_categorymenu"></th:block>
+	   
+	      <h1>Category</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div>
+	         <table border="1" class="table">
+	            <tr>
+	               <th>Name</th>
+	               <th>Description</th>
+	               <th>Skill count</th>
+	               <th>Order</th>
+	               <th>View | Edit | Delete</th>
+	            </tr>
+	             <tr th:each ="category : ${categories}">
+	               <td th:utext="${category.name}">...</td>
+	               <td th:utext="${category.description}">...</td>
+	               <td th:utext="${category.getSkillcount()}">...</td>
+	               <td th:utext="${category.order}">...</td>
+	               <td> 
+	               <a th:href="@{/category/edit/{id}(id=${category.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/category/detail/{id}(id=${category.getId()})}">View</a>
+	               |
+	               <a th:href="@{/category/delete/{id}(id=${category.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      </div>
+   </body>
+</html>

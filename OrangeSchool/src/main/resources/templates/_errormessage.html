@@ -1,0 +1,13 @@
+<br/>
+	       
+<!-- Check if errorMessage is not null and not empty -->
+
+<div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade in" 
+ xmlns:th="http://www.thymeleaf.org">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>NOTE ! </strong> 
+    <span th:utext="${errorMessage}"
+     style="color:red;font-style:italic;"></span>
+</div>
+  
+	     

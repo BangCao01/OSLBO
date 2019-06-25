@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Person List</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+	       <th:block th:include="/asset/_assetmenu"></th:block>
+	   
+	      <h1>Asset List</h1>
+	      
+	      <br/><br/>
+	      <div>
+	         <table border="1" class="table">
+	            <tr>
+	               <th>Name</th>
+	               <th>Uri</th>
+	               <th>Author</th>
+	               <th>Date</th>
+	            </tr>
+	             <tr th:each ="asset : ${assets}">
+	               <td th:utext="${asset.getName()}">...</td>
+	               <td th:utext="${asset.getUrl()}">...</td>
+	               <td th:utext="${asset.getAuthorName()}">...</td>
+	               <td th:utext="${asset.createDate}">...</td>
+	            </tr> 
+	         </table>
+	      </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Sign up</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body>
+   
+   <div class="container"><!-- begin of container -->
+      <h1>Sign Up Form</h1>
+                 
+      <form th:action="@{/home/signup}" class="form-horizontal"
+         th:object="${signUpForm}" method="POST">
+         <div class="form-group"> <label class="control-label col-sm-2" for="username"> Username </label>
+         
+	         <div class="col-sm-10">
+	         	<input type="text" class="form-control" id="username" placeholder="Username" th:field="*{username}"  />
+	         </div>
+         </div>
+          
+          <div class="form-group"> <label class="control-label col-sm-2" for="pwd"> Password </label>
+         
+	         <div class="col-sm-10">
+	         	<input type="text" class="form-control" id="pwd" placeholder="Password" th:field="*{password}"  />
+	         </div>
+         </div>
+         
+         <div class="form-group"> <label class="control-label col-sm-2" for="confirmpwd"> Confirm password </label>
+         
+	         <div class="col-sm-10">
+	         	<input type="text" class="form-control" id="confirmpwd" placeholder="Confirm password" th:field="*{confirmPassword}"  />
+	         </div>
+         </div>
+           
+         <div class="form-group"> 
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="submit" class="btn btn-danger">Sign Up</button>
+			    </div>
+			  </div>
+      </form>
+       
+      <br/>
+       
+      <!-- Check if errorMessage is not null and not empty -->
+       
+      <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+         ...
+      </div>
+    </div> <!-- end of container -->  
+   </body>
+</html>

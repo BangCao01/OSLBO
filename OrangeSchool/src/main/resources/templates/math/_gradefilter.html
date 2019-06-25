@@ -1,0 +1,9 @@
+
+ <div xmlns:th="http://www.thymeleaf.org">
+  
+    <ul class="nav nav-tabs" >
+    <li  th:each="item:${categories}" th:class="${categoryid == item.getId()} ? 'active' : ''"><a th:href="@{/math/index/{category}/1(category=${item.getId()})}" th:utext="${item.getName()}"></a></li>
+    </ul>
+    
+     
+ </div>

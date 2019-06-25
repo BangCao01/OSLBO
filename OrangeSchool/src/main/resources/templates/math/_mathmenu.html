@@ -1,0 +1,13 @@
+<div  xmlns:th="http://www.thymeleaf.org">
+  
+    <ul class="nav nav-tabs">
+    <li th:if="${categoryid}" th:class="${status == 1} ? 'active' : ''"><a th:href="@{/math/index/{categoryid}/1(categoryid = ${categoryid})}">Pending</a></li>
+    <li th:if="${categoryid}" th:class="${status == 2} ? 'active' : ''"><a th:href="@{/math/index/{categoryid}/2(categoryid = ${categoryid})}">Testing</a></li>
+    <li th:if="${categoryid}" th:class="${status == 3} ? 'active' : ''"><a th:href="@{/math/index/{categoryid}/3(categoryid = ${categoryid})}">Tested</a></li>
+    <li th:if="${categoryid}" th:class="${status == 4} ? 'active' : ''"><a th:href="@{/math/index/{categoryid}/4(categoryid = ${categoryid})}">Approving</a></li>
+    <li th:if="${categoryid}" th:class="${status == 5} ? 'active' : ''"><a th:href="@{/math/index/{categoryid}/5(categoryid = ${categoryid})}">Approved</a></li>
+    <li> <a th:if="${categoryid}" class="btn btn-info" role="button" th:href="@{/math/add/{category}(category=${categoryid})}">Add New</a>
+    </li>
+	</ul>
+     
+ </div>

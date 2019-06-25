@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Product List</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+	       <th:block th:include="/product/_productmenu"></th:block>
+	   
+	      <h1>Product</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div>
+	         <table border="1" class="table">
+	            <tr>
+	               <th>Name</th>
+	               <th>Description</th>
+	               <th>Image</th>
+	               <th>Price</th>
+	               <th>Period</th>
+	               <th>View | Edit | Delete</th>
+	            </tr>
+	             <tr th:each ="product : ${products}">
+	               <td th:utext="${product.getName()}">...</td>
+	               <td th:utext="${product.getDescription()}">...</td>
+	               <td th:utext="${product.getImageUrl()}">...</td>
+	               <td th:utext="${product.getPrice()}">...</td>
+	               <td th:utext="${product.getPeriod()}">...</td>
+	               <td> 
+	               <a th:href="@{/product/detail/{id}(id=${product.getId()})}">View</a>
+	               |
+	               <a th:href="@{/product/edit/{id}(id=${product.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/product/delete/{id}(id=${product.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      </div>
+   </body>
+</html>

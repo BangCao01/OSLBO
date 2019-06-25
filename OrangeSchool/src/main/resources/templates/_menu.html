@@ -1,0 +1,29 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Orange School</a>
+    </div>
+    <ul class="nav navbar-nav" th:each ="accesscode : ${accesscodes}">
+      <li th:if="${accesscode =='AdminUser'}" th:class="${menucode == 'AdminUser'} ? 'active' : ''"><a th:href="@{/admin/index}">Admins</a></li>
+      <li th:if="${accesscode =='Customer'}" th:class="${menucode == 'Customer'} ? 'active' : ''"><a th:href="@{/customer/index/1}">Customer</a></li>
+      
+      <li th:if="${accesscode =='Flashcard'}" th:class="${menucode == 'Flashcard'} ? 'active' : ''"><a th:href="@{/flashcard/index}">Flash Card</a></li>
+      <li th:if="${accesscode =='Math'}" th:class="${menucode == 'Math'} ? 'active' : ''"><a th:href="@{/math/index}">Math</a></li>
+      <li th:if="${accesscode =='Story'}" th:class="${menucode == 'Story'} ? 'active' : ''"><a th:href="@{/story/index}">Story</a></li>
+      <li th:if="${accesscode =='Ela'}" th:class="${menucode == 'Ela'} ? 'active' : ''"><a th:href="@{/ela/index}">Ela</a></li>
+      <li th:if="${accesscode =='Images'}" th:class="${menucode == 'Images'} ? 'active' : ''"><a th:href="@{/image/index}">Images</a></li>
+      <li th:if="${accesscode =='Sounds'}" th:class="${menucode == 'Sounds'} ? 'active' : ''"><a th:href="@{/sound/index}">Sounds</a></li>
+      <li th:if="${accesscode =='Texts'}" th:class="${menucode == 'Texts'} ? 'active' : ''"><a th:href="@{/text/index/1}">Texts</a></li>
+      <li th:if="${accesscode =='Asset'}" th:class="${menucode == 'Asset'} ? 'active' : ''"><a th:href="@{/asset/index}">Assets</a></li>
+      <li th:if="${accesscode =='Category'}" th:class="${menucode == 'Category'} ? 'active' : ''"><a th:href="@{/category/index}">Category</a></li>
+      <li th:if="${accesscode =='Topic'}" th:class="${menucode == 'Topic'} ? 'active' : ''"><a th:href="@{/topic/index}">Topic</a></li>
+      <li th:if="${accesscode =='Product'}" th:class="${menucode == 'Product'} ? 'active' : ''"><a th:href="@{/product/index}">Product</a></li>
+      <li th:if="${accesscode =='Transaction'}" th:class="${menucode == 'Transaction'} ? 'active' : ''"><a th:href="@{/transaction/index}">Transaction</a></li>
+      <li th:if="${accesscode =='Translator'}" th:class="${menucode == 'Translator'} ? 'active' : ''"><a th:href="@{/translator/index}">Translator</a></li>
+      
+      <li th:if="${accesscode =='Result'}" th:class="${menucode == 'Result'} ? 'active' : ''"><a th:href="@{/result/index}">Result</a></li>
+      <li th:if="${accesscode =='Logout'}" th:class="${menucode == 'Logout'} ? 'active' : ''"><a th:if="${#request.userPrincipal != null}" th:href="@{/home/logout}">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+

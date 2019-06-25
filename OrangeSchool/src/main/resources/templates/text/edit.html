@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+
+<title>Edit text</title>
+<th:block th:include="/_header"></th:block>
+</head>
+<body style="height: 1500px">
+
+	<!-- Include _menu.html -->
+	<th:block th:include="/_menu"></th:block>
+	<div class="container" style="margin-top: 50px">
+		<th:block th:include="/text/_textmenu"></th:block>
+
+
+		<h1>Edit text</h1>
+		<th:block th:include="/_errormessage"></th:block>
+
+
+		<form th:action="@{/text/edit/{id}(id=${textID})}"
+			class="form-horizontal" th:object="${textContentForm}"
+			enctype="multipart/form-data" method="POST">
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="username">Content:</label>
+				<div class="col-sm-10">
+					<textarea name="message" rows="10" cols="30" class="form-control"
+						id="content" placeholder="Content" th:field="*{content}"
+						th:value="${textContentForm.getContent()}"
+						>...</textarea>
+
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="soundname">Sound's
+					name</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="soundname"
+						placeholder="Name of sound" th:field="*{soundName}"
+						th:value="${textContentForm.getSoundName()}" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="description">Sound's
+					description</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="description"
+						placeholder="description" th:field="*{soundDescription}"
+						th:value="${textContentForm.getSoundDescription()}" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="fileupload">Sound
+					file to upload</label>
+				<div class="col-sm-10">
+					<input th:field="*{fileDatas}" type="file" id="fileupload"
+						accept=".mp3" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-danger">Save</button>
+				</div>
+			</div>
+
+		</form>
+
+
+
+	</div>
+</body>
+</html>

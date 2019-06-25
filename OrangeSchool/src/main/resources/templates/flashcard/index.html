@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Flashcard</title>
+      
+  
+      <th:block th:include="/_header"></th:block>
+  
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+   
+      <div class="container" style="margin-top:50px">
+      
+      <th:block th:include="/flashcard/_flashcardmenu"></th:block>
+      
+	      <h1>Flashcard list</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div class="row">
+	         <table border="1" class="table">
+	            <tr>
+	               <th>ID</th>
+	               <th>Word</th>
+	               <th>Asset url</th>
+	               <th>Status</th>
+	               <th>Author</th>
+	                <th>[Edit | View | Delete]</th>
+	            </tr>
+	             <tr th:each ="flashcard : ${flashcards}">
+	               <td th:utext="${flashcard.getId()}">...</td>
+	               <td th:utext="${flashcard.getWordText()}">...</td>
+	               <td th:utext="${flashcard.getAssetUrl()}">...</td>
+	               <td th:utext="${flashcard.getStatus()}">...</td>
+	               <td th:utext="${flashcard.getAuthorName()}">...</td>
+	               <td> 
+	               <a th:href="@{/flashcard/detail/{flashcardid}(flashcardid=${flashcard.getId()})}">View</a>
+	               |
+	               <a th:href="@{/flashcard/edit/{flashcardid}(flashcardid=${flashcard.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/flashcard/delete/{flashcardid}(flashcardid=${flashcard.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	              
+	            </tr> 
+	         </table>
+	      </div>
+      
+      </div>
+      
+      <th:block th:include="/_footer"></th:block>
+   </body>
+</html>

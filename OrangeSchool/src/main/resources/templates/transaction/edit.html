@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+
+<title>Transaction edit</title>
+<th:block th:include="/_header"></th:block>
+</head>
+<body style="height: 1500px">
+
+	<!-- Include _menu.html -->
+	<th:block th:include="/_menu"></th:block>
+
+	<div class="container" style="margin-top: 50px">
+		<th:block th:include="/transaction/_transactionmenu"></th:block>
+
+		<h1>Transaction Form</h1>
+		<th:block th:include="/_errormessage"></th:block>
+		<form th:action="@{/transaction/edit/{id}(id=${transactionID})}"
+			class="form-horizontal" th:object="${transactionForm}" method="POST">
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name">Customer :</label>
+				<div class="col-sm-10">
+
+					<span th:utext="${transactionForm.getCustomerName()}"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="description">Bill
+					code:</label>
+				<div class="col-sm-10">
+
+					<span th:utext="${transactionForm.getBillcode()}"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="type">Bill's
+					status:</label>
+				<div class="col-sm-10">
+					<select id="status" th:field="*{status}">
+						<option value="1"
+							th:selected="${transactionForm.getStatus() == 1} ? 'selected' : ''">Pending</option>
+						<option value="2"
+							th:selected="${transactionForm.getStatus() == 2} ? 'selected' : ''">Approved</option>
+						<option value="3"
+							th:selected="${transactionForm.getStatus() == 3} ? 'selected' : ''">Rejected</option>
+
+					</select>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-danger">Save</button>
+				</div>
+			</div>
+
+		</form>
+
+		<br />
+
+
+
+
+	</div>
+</body>
+</html>

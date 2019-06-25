@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Transaction List</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+	   <th:block th:include="/transaction/_transactionmenu"></th:block>
+
+	      <h1>Transactions</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div>
+	         <table border="1" class="table">
+	            <tr>
+	               <th>Username</th>
+	               <th>Billcode</th>
+	               <th>Product</th>
+	               <th>Description</th>
+	               <th>Value</th>
+	               <th>Value by word</th>
+	               <th>Status</th>
+	               <th>View | Edit | Delete</th>
+	            </tr>
+	             <tr th:each ="transaction : ${transactions}">
+	               <td th:utext="${transaction.getCustomerName()}">...</td>
+	               <td th:utext="${transaction.getBillcode()}">...</td>
+	               <td th:utext="${transaction.getProductName()}">...</td>
+	               <td th:utext="${transaction.getDescription()}">...</td>
+	               <td th:utext="${transaction.getTransValue()}">...</td>
+	               <td th:utext="${transaction.getTransValueByWord()}">...</td>
+	               <td th:utext="${transaction.getStatus()}">...</td>
+	               <td> 
+	               <a th:href="@{/transaction/detail/{id}(id=${transaction.getId()})}">View</a>
+	               |
+	               <a th:href="@{/transaction/edit/{id}(id=${transaction.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/transaction/delete/{id}(id=${transaction.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      </div>
+   </body>
+</html>

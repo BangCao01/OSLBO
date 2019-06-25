@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      
+      <title>Add new category</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+       <th:block th:include="/category/_categorymenu"></th:block>
+   
+	      <h1>Category Form</h1>
+	                 
+	      <form th:action="@{/category/edit/{id}(id=${categoryID})}" class="form-horizontal"
+	         th:object="${categoryForm}" method="POST">
+	         
+	          <div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Name:</label>
+			    <div class="col-sm-10">
+			      
+			      <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{name}"  
+			      th:value="${categoryForm.getName()}"/> 
+			    </div>
+			  </div>
+	          
+	          <div class="form-group">
+			    <label class="control-label col-sm-2" for="description">Description:</label>
+			    <div class="col-sm-10">
+			      <textarea name="description" rows="10" cols="30" class="form-control" id="desciption" 
+			      placeholder="Description" th:field="*{description}" 
+			      th:value="${categoryForm.getDescription()}">...</textarea>
+			     
+			    </div>
+			  </div>
+			  
+	          <div class="form-group">
+			    <label class="control-label col-sm-2" for="order">Category's order:</label>
+			    <div class="col-sm-10">
+			      
+			      <input type="text" class="form-control" id="order" placeholder="Order" th:field="*{order}" 
+			             th:value="${categoryForm.getOrder()}"/> 
+			    </div>
+			  </div>
+	         
+	         <div class="form-group">
+			    <label class="control-label col-sm-2" for="order">Category's Skill Count:</label>
+			    <div class="col-sm-10">
+			      
+			      <input type="text" class="form-control" id="skillcount" placeholder="Skill count" th:field="*{skillcount}" 
+			             th:value="${categoryForm.getSkillcount()}"/> 
+			    </div>
+			  </div>
+	         
+	         
+			  <div class="form-group"> 
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="submit" class="btn btn-danger">Save</button>
+			    </div>
+			  </div>
+	         
+	      </form>
+	       
+	      <br/>
+	       
+	      <!-- Check if errorMessage is not null and not empty -->
+	       
+	      <div th:if="${errorMessage}" th:utext="${errorMessage}"
+	         style="color:red;font-style:italic;">
+	         ...
+	      </div>
+	      
+	      
+      </div>
+   </body>
+</html>

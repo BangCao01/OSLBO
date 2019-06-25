@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Image List</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+	       <th:block th:include="/image/_imagemenu"></th:block>
+	   
+	      <h1>Image List</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div>
+	         <table border="1" class="table">
+	            <tr>
+	               <th>Name</th>
+	               <th>Thumb</th>
+	               <th>Description</th>
+	               <th>Author</th>
+	               <th>CreateDate</th>
+	               <th>UpdateDate</th>
+	               <th>View | Edit | Delete</th>
+	               
+	            </tr>
+	             <tr th:each ="image : ${images}">
+	               <td th:utext="${image.name}">...</td>
+	               <td > 
+	               	<img th:src="${image.getUrl()}" th:alt="${image.getUri()}" height="96" width="96">
+	               </td>
+	               <td th:utext="${image.description}">...</td>
+	               <td th:utext="${image.getAuthorName()}">...</td>
+	               <td th:utext="${image.createDate}">...</td>
+	               <td th:utext="${image.updateDate}">...</td>
+	               <td> 
+	               <a th:href="@{/image/edit/{id}(id=${image.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/image/detail/{id}(id=${image.getId()})}">View</a>
+	               |
+	               <a th:href="@{/image/delete/{id}(id=${image.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      </div>
+   </body>
+</html>

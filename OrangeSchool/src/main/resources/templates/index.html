@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Welcome</title>
+      <th:block th:include="/_header"></th:block>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/welcome.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/welcome1.css}"/>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/store.css}"/>
+   
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="https://www.w3schools.com/bootstrap/trybs_theme_company_full.htm#myPage">Orange School</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class=""><a href="https://www.w3schools.com/bootstrap/trybs_theme_company_full.htm#about">ABOUT</a></li>
+        <li class=""><a href="https://www.w3schools.com/bootstrap/trybs_theme_company_full.htm#services">SERVICES</a></li>
+        <li class=""><a href="https://www.w3schools.com/bootstrap/trybs_theme_company_full.htm#portfolio">PORTFOLIO</a></li>
+        <li class=""><a href="https://www.w3schools.com/bootstrap/trybs_theme_company_full.htm#pricing">PRICING</a></li>
+        <li class=""><a href="https://www.w3schools.com/bootstrap/trybs_theme_company_full.htm#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>Orange School</h1> 
+  <p>Bilingual education platform for kids</p> 
+  <form class="form-inline">
+    <div class="input-group">
+      <input type="email" class="form-control" size="50" placeholder="Email Address" required="">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger">Subscribe</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Our story</h2><br>
+      <h4>Orange School built by parent who have kids, loving math, english, and gaming. We want to help kids learn to learn English, math via video game. Every lesson would be gamified to be friendly with kids</h4><br>
+      <p>Orange School được xây dựng bởi chúng tôi, những phụ huynh có con nhỏ, yêu thích toán học và phát triển game. Chúng tôi mong muốn thông qua việc game hoá các bài học, sẽ giúp những đứa trẻ có thể học tiếng Anh, Toán học,.. dễ dàng hơn.</p>
+      <br><button class="btn btn-default btn-lg">Get in Touch</button>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-signal logo"></span>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bggreen" >
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="./imgs/kid.png" class="img1">
+    </div>
+    <div class="col-sm-8" >
+      <h2 class="whitetext">Our Values</h2><br>
+      <h4 class="whitetext">Our mission is bring thousand of lessons in bilingual to million of kids in Vietnam and SEA. Every single kid can access high-standard education content with a very low cost. Give more opportunities to kids as reaching bright future via educational technology </h4><br>
+      <p class="blacktext">Khát vọng của chúng tôi là mang hàng nghìn bài học song ngữ đến hàng triệu trẻ em Việt Nam và khu vực Đông Nam Á.
+      Mỗi trẻ em đều có cơ hội tiếp cận những nội dung giáo dục chất lượng cao, song ngữ, với chi phí vô cùng phù hợp. Chúng tôi kỳ vọng mang đến tương lai sáng cho trẻ em thông qua công nghệ giáo dục.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2>SERVICES</h2>
+  <h4>What we offer</h4>
+  <br>
+  <div class="row slideanim slide">
+    <div class="col-sm-4">
+      <!-- <span class="glyphicon glyphicon-off logo-small"></span> -->
+      <img src="./imgs/math.png" class="topicicon">
+      <h4>Math</h4>
+      <p>Cung cấp bài giảng toán học</p>
+    </div>
+    <div class="col-sm-4">
+      <!-- <span class="glyphicon glyphicon-heart logo-small"></span> -->
+      <img src="./imgs/mathquiz.png" class="topicicon">
+      <h4>Math question</h4>
+      <p>Cung cấp các bài kiểm tra trắc nghiệm toán </p>
+    </div>
+    <div class="col-sm-4">
+      <!-- <span class="glyphicon glyphicon-lock logo-small"></span> -->
+      <img src="./imgs/flashcard.png" class="topicicon">
+      <h4> English flashcard  </h4>
+      <p> Thẻ học từ vựng tiếng anh miễn phí </p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim slide">
+    <div class="col-sm-4">
+      <!-- <span class="glyphicon glyphicon-leaf logo-small"></span> -->
+      <img src="./imgs/story.png" class="topicicon">
+      <h4>English story</h4>
+      <p>Cung cấp học liệu tiếng anh</p>
+    </div>
+    <div class="col-sm-4 ">
+      <!-- <span class="glyphicon glyphicon-certificate logo-small"></span> -->
+      <img src="./imgs/lesson.png" class="topicicon">
+      <h4>English lesson </h4>
+      <p>Cung cấp bài giảng tiếng anh</p>
+    </div>
+    <div class="col-sm-4">
+     <!--  <span class="glyphicon glyphicon-wrench logo-small"></span> -->
+     <img src="./imgs/elaquiz.png" class="topicicon">
+      <h4 style="color:#303030;">English test </h4>
+      <p> Cung cấp các bài kiểm tra trắc nghiệm </p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bggreen2"  >
+  <h2>Market size </h2><br>
+  <div class="row text-center slideanim slide">
+    <div class="col-sm-4">
+      <div class="">
+        <img src="./imgs/pic1.png" alt="Paris" width="300" height="400">
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="">
+        <img src="./imgs/pic1.png" alt="Paris" width="300" height="400">
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="">
+        <img src="./imgs/pic1.png" alt="Paris" width="300" height="400">
+      </div>
+    </div>
+  </div><br>
+  
+</div>
+
+<div>
+  <h2 class="text-center">What our customers say</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox" style="color:#ffffff;">
+      <div class="item active">
+        <h4>"This company is the best. I am so happy with the result!"<br><span>Michael Roe, Vice President, Comment Box</span></h4>
+      </div>
+      <div class="item">
+        <h4>"One word... WOW!!"<br><span>John Doe, Salesman, Rep Inc</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Could I... BE any more happy with this company?"<br><span>Chandler Bing, Actor, FriendsAlot</span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="https://www.w3schools.com/bootstrap/trybs_theme_company_full.htm#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="https://www.w3schools.com/bootstrap/trybs_theme_company_full.htm#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  </div>
+
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+  <div class="text-center">
+    <h2>Pricing</h2>
+    <h4>Choose a payment plan that works for you</h4>
+  </div>
+  <div class="row slideanim slide">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Basic</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>10</strong> Chủ đề Toán (Math topics)</p>
+          <p><strong>30</strong> Câu hỏi Toán (Math question)</p>
+          <p><strong>10</strong> Câu chuyện tiếng anh (English story)</p>
+          <p><strong>30</strong> Bài test tiếng anh (English test)</p>
+          <p><strong>Endless</strong> Flashcard Game</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$9</h3>
+          <h4>per month</h4>
+          <button class="btn btn-lg">Sign Up</button>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Pro</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>20</strong> Chủ đề Toán (Math topics)</p>
+          <p><strong>50</strong> Câu hỏi Toán (Math question)</p>
+          <p><strong>20</strong> Câu chuyện tiếng anh (English story)</p>
+          <p><strong>50</strong> Bài test tiếng anh (English test)</p>
+          <p><strong>Endless</strong> Flashcard Game</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$24</h3>
+          <h4>per 6 months</h4>
+          <button class="btn btn-lg">Sign Up</button>
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Premium</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>50</strong> Chủ đề Toán (Math topics)</p>
+          <p><strong>80</strong> Câu hỏi Toán (Math question)</p>
+          <p><strong>50</strong> Câu chuyện tiếng anh (English story)</p>
+          <p><strong>80</strong> Bài test tiếng anh (English test)</p>
+          <p><strong>Endless</strong> Flashcard Game</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$36</h3>
+          <h4>per 12 months </h4>
+          <button class="btn btn-lg">Sign Up</button>
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bggreen whitetext">
+  <h2 class="text-center whitetext">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Ho Chi Minh city, Vietnam</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +84 902036298</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> support@orangeschool.com</p>
+    </div>
+    <div class="col-sm-7 slideanim slide">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required="">
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required="">
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<!-- <img src="./imgs/ground.png" class="w3-image w3-greyscale-min" style="width:100%"> -->
+
+<th:block th:include="/_footer"></th:block>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+   
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+  
+  // Slide in elements on scroll
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+   </body>
+    
+</html>

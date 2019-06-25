@@ -1,0 +1,10 @@
+<div  xmlns:th="http://www.thymeleaf.org">
+  
+    <ul class="nav nav-tabs">
+    <li th:class="${actioncode == 'List'} ? 'active' : ''"><a th:href="@{/transaction/index}">List</a></li>
+    <li th:class="${actioncode == 'Approve'} ? 'active' : ''"><a th:href="@{/transaction/index}">Approved</a></li>
+  
+  
+	</ul>
+     
+ </div>

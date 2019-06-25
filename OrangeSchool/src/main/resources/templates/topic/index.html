@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Topic List</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+	       <th:block th:include="/topic/_topicmenu"></th:block>
+	       <th:block th:include="/topic/_gradefilter"></th:block>
+	   
+	      <h1>Topics</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      
+	      <div>
+	         <table border="1" class="table">
+	            <tr>
+	               <th>ID</th>
+	               <th>Name</th>
+	               <th>Parent topic</th>
+	               <th>Grade</th>
+	               <th>Order</th>
+	               <th>View | Edit | Delete</th>
+	            </tr>
+	             <tr th:each ="topic : ${topics}">
+	             <td th:utext="${topic.getId()}">...</td>
+	               <td th:utext="${topic.getName()}">...</td>
+	               <td th:utext="${topic.getParentName()}">...</td>
+	               <td th:utext="${topic.getCategoryName()}">...</td>
+	               <td th:utext="${topic.getOrder()}">...</td>
+	               <td> 
+	               <a th:href="@{/topic/edit/{id}(id=${topic.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/topic/detail/{id}(id=${topic.getId()})}">View</a>
+	               |
+	               <a th:href="@{/topic/delete/{id}(id=${topic.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+	      
+	      <div class="row" th:fragment="pagination">
+	        <div class="col-md-2"></div>
+	        <div class="col-md-8">
+	            <nav aria-label="Pagination">
+	                <ul class="pagination justify-content-center">
+	                    <li class="page-item" th:each="pageNumber : ${pageNumbers}" >
+	                        
+	                        <a class="page-link" th:href="@{|/topic/index?page=${pageNumber}|}" th:text=${pageNumber}>1</a>
+	                    </li>
+	                </ul>
+	            </nav>
+	        </div>
+        <div class="col-md-2"></div>
+      </div>
+   </body>
+</html>

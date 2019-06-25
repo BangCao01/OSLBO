@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      
+      <title>Add new product</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+       <th:block th:include="/product/_productmenu"></th:block>
+   
+	      <h1>Product Form</h1>
+	     <th:block th:include="/_errormessage"></th:block>
+	      <form th:action="@{/product/add}" class="form-horizontal"
+	         th:object="${productForm}" enctype="multipart/form-data" method="POST">
+	         
+	          <div class="form-group">
+			    <label class="control-label col-sm-2" for="name">Name:</label>
+			    <div class="col-sm-10">
+			      
+			      <input type="text" class="form-control" id="name" placeholder="Name" th:field="*{name}" /> 
+			    </div>
+			  </div>
+	         
+	          <div class="form-group">
+			    <label class="control-label col-sm-2" for="description">Description:</label>
+			    <div class="col-sm-10">
+			      <textarea name="description" rows="10" cols="30" class="form-control" id="desciption" placeholder="Description" th:field="*{description}" >The cat was playing in the garden.</textarea>
+			     
+			    </div>
+			  </div>
+	          <div class="form-group">
+			    <label class="control-label col-sm-2" for="price">Price:</label>
+			    <div class="col-sm-10">
+			      
+			      <input type="text" class="form-control" id="price" placeholder="Price" th:field="*{price}" /> 
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+		         <label class="control-label col-sm-2" for="fileupload">Image:</label>
+		            <div class="col-sm-10">
+		                 <input name="image" th:field="*{fileDatas}" type="file" id="fileupload" accept=".png, .jpg, .jpeg"/>
+		         </div>
+		      </div>
+	         
+			  <div class="form-group"> 
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="submit" class="btn btn-danger">Add</button>
+			    </div>
+			  </div>
+	         
+	      </form>
+	       
+	      <br/>
+	       
+	      
+	      
+	      
+      </div>
+   </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Image upload</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h1>Image Upload Form</h1>
+                 
+      <form th:action="@{/util/imageupload}"
+         th:object="${imageUploadForm}" method="POST">
+          Name:
+         <input type="text" th:field="*{name}" />    
+         <br/>
+         Uri:
+         <input type="text" th:field="*{uri}" />
+         <br/>
+         Description:
+         <input type="text" th:field="*{description}" />      
+         <br/>
+         <input type="submit" value="Upload" />
+      </form>
+       
+      <br/>
+       
+      <!-- Check if errorMessage is not null and not empty -->
+       
+      <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+         ...
+      </div>
+       
+   </body>
+</html>

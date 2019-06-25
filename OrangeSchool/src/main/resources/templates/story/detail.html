@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Stories</title>
+      
+  
+      <th:block th:include="/_header"></th:block>
+  
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+   
+      <div class="container" style="margin-top:50px">
+      
+      <th:block th:include="/story/_storymenu"></th:block>
+      
+	      <h1>Story's detail</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div class="row">
+	         <table border="1" class="table">
+	            <tr >
+	               <td>Story ID </td>
+	               <td th:utext="${story.getId()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	               <td>Title </td>
+	               <td th:utext="${story.getTitle()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	               <td>Description </td>
+	               <td th:utext="${story.getDescription()}">...</td>
+	            </tr>
+	            
+	             <tr >
+	               <td>Category</td>
+	               <td th:utext="${story.getCategoryName()}">...</td>
+	            </tr>
+	            
+	            
+	             <tr >
+	               <td>Image </td>
+	               <td th:utext="${story.getImageUrl()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	               <td>Thumb</td>
+	               <td th:utext="${story.getThumbUrl()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	               <td>Author</td>
+	               <td th:utext="${story.getAuthorName()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	               <td>Status </td>
+	               <td th:utext="${story.getStatus()}">...</td>
+	            </tr>
+	              
+	         </table>
+	      </div>
+      
+      
+      	 
+	      <h1>Story >> Paragraphs</h1>
+	      <th:block th:include="/paragraph/_paragraphmenu"></th:block>
+	      <br/><br/>
+	      <div class="row">
+	         <table border="1" class="table">
+	            <tr>
+	               <th>ID</th>
+	               <th>StoryID</th>
+	               <th>Content</th>
+	               <th>Image</th>
+	               <th>Page Order</th>
+	               <th>Author</th>
+	                <th>Status</th>
+	                <th>[View |  Edit| Delete]</th>
+	            </tr>
+	             <tr th:each ="paragraph : ${story.getParagraphs()}">
+	               <td th:utext="${paragraph.getId()}">...</td>
+	               <td th:utext="${paragraph.getStoryID()}">...</td>
+	               <td th:utext="${paragraph.getText()}">...</td>
+	               <td th:utext="${paragraph.getImageUrl()}">...</td>
+	               <td th:utext="${paragraph.getPageOrder()}">...</td>
+	               <td th:utext="${paragraph.getAuthorName()}">...</td>
+	               <td th:utext="${paragraph.getStatus()}">...</td>
+	               <td> 
+	               <a th:href="@{/paragraph/detail/{storyid}/{id}(storyid=${paragraph.getStoryID()}, id= ${paragraph.getId()})}">View</a>
+	                 | <a th:href="@{/paragraph/edit/{storyid}/{id}(storyid=${paragraph.getStoryID()}, id= ${paragraph.getId()})}">Edit</a>
+	                 | <a th:href="@{/paragraph/delete/{storyid}/{id}(storyid=${paragraph.getStoryID()}, id= ${paragraph.getId()})}">Delete</a>
+	               </td>
+	              
+	            </tr> 
+	         </table>
+	      </div>
+      
+      </div>
+      
+      <th:block th:include="/_footer"></th:block>
+   </body>
+</html>

@@ -1,0 +1,12 @@
+
+ <div th:if="${type}" xmlns:th="http://www.thymeleaf.org">
+  
+    <ul class="nav nav-tabs" >
+    <li  th:each="item:${categories}" th:class="${category == item.getId()} ? 'active' : ''"><a th:href="@{/topic/index/{type}/{category}/(type=${type}, category=${item.getId()})}" th:utext="${item.getName()}"></a></li>
+    </ul>
+    <br><br>
+    <h4 th:utext="${skillcount}">...</h4> skills
+    <br>
+    <a class="btn btn-info" role="button" th:href="@{/topic/add/{type}/{category}(type=${type}, category=${category})}">Add New</a>
+     
+ </div>

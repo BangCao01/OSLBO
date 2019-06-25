@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Math subject detail</title>
+      
+  
+      <th:block th:include="/_header"></th:block>
+  
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+   
+      <div class="container" style="margin-top:50px">
+      <th:block th:include="/math/_gradefilter"></th:block>
+      <th:block th:include="/math/_mathmenu"></th:block>
+      
+	      <h1>Detail</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div class="row">
+	         <table border="1" class="table">
+	            <tr >
+	              <td> ID </td>
+	               <td th:utext="${mathSubject.getId()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	               <td> Content </td>
+	               <td th:utext="${mathSubject.getSubjectContent()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	              <td> Description </td>
+	               <td th:utext="${mathSubject.getDescriptionContent()}">...</td>
+	            </tr>
+	            
+	            
+	            <tr >
+	              <td> Topic's ID </td>
+	               <td th:utext="${mathSubject.getTopicID()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	              <td> Topic </td>
+	               <td th:utext="${mathSubject.getTopicName()}">...</td>
+	            </tr>
+	            
+	            
+	              <tr >
+	              <td> Category </td>
+	               <td th:utext="${mathSubject.getCategoryName()}">...</td>
+	            </tr>
+	            <tr >
+	              <td> Author </td>
+	               <td th:utext="${mathSubject.getAuthorName()}">...</td>
+	            </tr>
+	            
+	             <tr >
+	              <td> Status </td>
+	               <td th:utext="${mathSubject.getStatus()}">...</td>
+	            </tr>
+	            
+	            
+	            
+	            
+	            
+	         </table>
+	      </div>
+      
+      </div>
+      
+      <th:block th:include="/_footer"></th:block>
+   </body>
+</html>

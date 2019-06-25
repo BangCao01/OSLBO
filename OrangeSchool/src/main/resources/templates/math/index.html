@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Math Subject List</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+   
+      <div class="container" style="margin-top:50px">
+      
+      
+      <th:block th:include="/math/_gradefilter"></th:block>
+      <th:block th:include="/math/_mathmenu"></th:block>
+	      <h1>Math subjects List</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div class="row" th:if="${categoryid}">
+	         <table border="1" class="table">
+	            <tr>
+	               <th>ID</th>
+	               <th>Subject</th>
+	               <th>Description</th>
+	               <th>Topic's ID</th>
+	                <th>Status</th>
+	                <th>View | Edit | Delete</th>
+	            </tr>
+	             <tr th:each ="mathSubject : ${mathSubjects}">
+	               <td th:utext="${mathSubject.getId()}">...</td>
+	               <td th:utext="${mathSubject.getSubjectContent()}">...</td>
+	               <td th:utext="${mathSubject.getDescriptionContent()}">...</td>
+	               <td th:utext="${mathSubject.getTopicID()}">...</td>
+	               <td th:utext="${mathSubject.getStatus()}">...</td>
+	               <td> 
+	               <a th:href="@{/math/detail/{id}(id=${mathSubject.getId()})}">View</a>
+	               |
+	               <a th:href="@{/math/edit/{id}(id=${mathSubject.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/math/delete/{id}(id=${mathSubject.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      
+      </div>
+      
+      <th:block th:include="/_footer"></th:block>
+   </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Sound</title>
+      
+  
+      <th:block th:include="/_header"></th:block>
+  
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+   
+      <div class="container" style="margin-top:50px">
+      
+      <th:block th:include="/sound/_soundmenu"></th:block>
+      
+	      <h1>Detail</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div class="row">
+	         <table border="1" class="table">
+	            <tr >
+	              <td> ID </td>
+	               <td th:utext="${sound.getId()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	               <td> Name </td>
+	               <td th:utext="${sound.getName()}">...</td>
+	            </tr>
+	             <tr >
+	               <td> Description </td>
+	               <td th:utext="${sound.getDescription()}">...</td>
+	            </tr>
+	              
+	              <tr >
+	              <td> Uri </td>
+	               <td th:utext="${sound.getUri()}">...</td>
+	            </tr>
+	              
+	              <tr >
+	              <td> Thumb </td>
+	               <td>
+	               <img th:src="${sound.getUrl()}" th:alt="${sound.getUrl()}" height="42" width="42">
+	               
+	               </td>
+	            </tr>
+	              
+	            
+	         </table>
+	      </div>
+      
+      </div>
+      
+      <th:block th:include="/_footer"></th:block>
+   </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Upload Result</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+    
+   <body style="height:1500px">
+  
+      <th:block th:include="/_menu"></th:block>
+       
+      <div class="container" style="margin-top:50px">
+        Image name: <span th:utext="${name}"></span>
+	      <br/>
+	    Status: <span th:utext="${status}"></span>
+	      <br/>
+      	Description: <span th:utext="${description}"></span>
+	      <br/>
+	      <h3>Uploaded Files:</h3>
+	       
+	      <ul th:each="file : ${uploadedFiles}">
+	         <li th:utext="${file}"></li>  
+	      </ul>      
+	       
+	      <h3>Failed:</h3>
+	      <ul th:each="file : ${failedFiles}">
+	         <li style="color:red;" th:utext="${file}"></li>  
+	      </ul>
+      </div>
+       
+      
+       
+   </body>
+    
+</html>

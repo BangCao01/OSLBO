@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Transaction List</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+       <th:block th:include="/_menu"></th:block>
+   
+   <div class ="container" style="margin-top:50px">
+	   <th:block th:include="/result/_resultmenu"></th:block>
+
+	      <h1>Result</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div>
+	         <table border="1" class="table">
+	            <tr>
+	               <th>Name</th>
+	               <th>Subject</th>
+	               <th>Type</th>
+	               <th>Description</th>
+	               <th>Score</th>
+	               <th>View | Delete</th>
+	            </tr>
+	             <tr th:each ="result : ${results}">
+	               <td th:utext="${result.getCustomerName()}">...</td>
+	               <td th:utext="${result.getSubject()}">...</td>
+	               <td th:utext="${result.getType()}">...</td>
+	               <td th:utext="${result.getDescription()}">...</td>
+	               <td th:utext="${result.getScore()}">...</td>
+	               
+	               <td> 
+	               <a th:href="@{/result/detail/{id}(id=${result.getId()})}">View</a>
+	               |
+	               <a th:href="@{/result/delete/{id}(id=${result.getId()})}">Delete</a>
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      
+      <title>Edit Flashcard</title>
+      <th:block th:include="/_header"></th:block>
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+      <div class="container" style="margin-top:50px">
+         <th:block th:include="/flashcard/_flashcardmenu"></th:block>
+      
+      
+	      <h1>Edit flashcard</h1>
+	      <th:block th:include="/_errormessage"></th:block>
+	                 
+	      <form th:action="@{/flashcard/edit/{id}(id=${flashcardID})}" class="form-horizontal"
+	         th:object="${flashcardForm}" enctype="multipart/form-data" method="POST">
+	         
+	          <div class="form-group">
+			    <label class="control-label col-sm-2" for="word">Word:</label>
+			    <div class="col-sm-10">
+			      
+			      <input type="text" class="form-control" id="word" placeholder="Word" th:field="*{word}"
+			        th:value="${flashcardForm.getWord()}"
+			       />
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+				  <label class="control-label col-sm-2" for="status">Status:</label>
+				  <div class="col-sm-10">
+				    <select id="status" th:field="*{status}" >
+				        
+				    	<option  th:selected="${flashcardForm.getStatus() == 1} ? 'selected' : ''" value="1"> 1</option>
+				    	<option  th:selected="${flashcardForm.getStatus() == 2} ? 'selected' : ''" value="2"> 2</option>
+				    	<option  th:selected="${flashcardForm.getStatus() == 3} ? 'selected' : ''" value="2"> 3</option>
+				    	<option  th:selected="${flashcardForm.getStatus() == 4} ? 'selected' : ''" value="2"> 4</option>
+				    	<option  th:selected="${flashcardForm.getStatus() == 5} ? 'selected' : ''" value="2"> 5</option>
+				     </select>
+				  </div>
+				</div>
+	          
+		      <div class="form-group">
+		         <label class="control-label col-sm-2" for="asset">Asset:</label>
+		            <div class="col-sm-10">
+		                 <input th:field="*{fileDatas}" type="file" id="asset"/>
+		         </div>
+		      </div>
+	         
+			  <div class="form-group"> 
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="submit" class="btn btn-danger">Add</button>
+			    </div>
+			  </div>
+	         
+	      </form>
+	       
+	      
+	      
+	      
+      </div>
+   </body>
+</html>

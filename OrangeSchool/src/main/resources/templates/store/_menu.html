@@ -1,0 +1,15 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid" xmlns:th="http://www.thymeleaf.org">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Orange School</a>
+    </div>
+    <ul class="nav navbar-nav" th:each ="accesscode : ${accesscodes}">
+      <li th:if="${accesscode =='Math'}" th:class="${menucode == 'Math'} ? 'active' : ''"><a th:href="@{/}">Math</a></li>
+      <li th:if="${accesscode =='Ela'}" th:class="${menucode == 'Ela'} ? 'active' : ''"><a th:href="@{/topic/index}">Ela</a></li>
+      <li th:if="${accesscode =='Flashcard'}" th:class="${menucode == 'Flashcard'} ? 'active' : ''"><a th:href="@{/topic/index}">Flashcard</a></li>
+      <li th:if="${accesscode =='Story'}" th:class="${menucode == 'Story'} ? 'active' : ''"><a th:href="@{/topic/index}">Story</a></li>
+      <li th:if="${accesscode =='Logout'}" th:class="${menucode == 'Logout'} ? 'active' : ''"><a th:if="${#request.userPrincipal != null}" th:href="@{/home/logout}">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+

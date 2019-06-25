@@ -1,0 +1,12 @@
+ 
+ <div  xmlns:th="http://www.thymeleaf.org">
+  
+    <ul class="nav nav-tabs">
+    <li ><a th:href="@{/paragraph/index/{id}(id=${storyID})}">List of paragraph</a></li>
+    <li ><a th:href="@{/paragraph/add/{id}(id=${storyID})}">Add new paragraph</a></li>
+    <li ><a th:href="@{/paragraph/index/{id}(id=${storyID})}">Pending</a></li>
+    <li ><a th:href="@{/paragraph/index/{id}(id=${storyID})}">Approved</a></li>
+  
+	</ul>
+     
+ </div>

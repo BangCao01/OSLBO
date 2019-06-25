@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Translator</title>
+      
+  
+      <th:block th:include="/_header"></th:block>
+  
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+   
+      <div class="container" style="margin-top:50px">
+      
+      <th:block th:include="/translator/_translatormenu"></th:block>
+
+	      <h1>Detail</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div class="row">
+	         <table border="1" class="table">
+	            <tr >
+	              <td> ID </td>
+	               <td th:utext="${translator.getId()}">...</td>
+	            </tr>
+	            
+	            <tr >
+	               <td> Content </td>
+	               <td th:utext="${translator.getContent()}">...</td>
+	            </tr>
+	             <tr >
+	               <td> Vietnamese </td>
+	               <td th:utext="${translator.getVietnamese()}">...</td>
+	            </tr>
+	              
+	              <tr >
+	               <td> Japanese </td>
+	               <td th:utext="${translator.getJapanese()}">...</td>
+	            </tr>
+	              
+	              <tr >
+	               <td> Indonesian </td>
+	               <td th:utext="${translator.getIndonesian()}">...</td>
+	            </tr>
+	              
+	              <tr >
+	               <td> Portuguese </td>
+	               <td th:utext="${translator.getPortuguese()}">...</td>
+	            </tr>
+	              
+	              
+	              <tr >
+	              <td> Status </td>
+	               <td th:utext="${translator.getStatus()}">...</td>
+	            </tr>
+	              
+	              <tr >
+	              <td> Author </td>
+	               <td th:utext="${translator.getAuthorName()}">...</td>
+	            </tr>
+	              
+	               <tr >
+	              <td> Create date </td>
+	               <td th:utext="${translator.getCreateDate()}">...</td>
+	            </tr>
+	            
+	             <tr >
+	              <td> Update date </td>
+	               <td th:utext="${translator.getUpdateDate()}">...</td>
+	            </tr>
+	            
+	         </table>
+	      </div>
+      
+      </div>
+      
+      <th:block th:include="/_footer"></th:block>
+   </body>
+</html>

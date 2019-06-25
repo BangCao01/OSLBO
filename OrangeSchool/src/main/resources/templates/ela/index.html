@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>English test List</title>
+      
+  
+      <th:block th:include="/_header"></th:block>
+  
+   </head>
+   <body style="height:1500px">
+   
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+   
+      <div class="container" style="margin-top:50px">
+      <th:block th:include="/ela/_gradefilter"></th:block>
+      <th:block th:include="/ela/_elamenu"></th:block>
+      
+	      <h1>English test List</h1>
+	      <th:block th:include="/_successmessage"></th:block>
+	      <br/><br/>
+	      <div class="row" th:if="${categoryid}">
+	         <table border="1" class="table">
+	            <tr>
+	               <th>ID</th>
+	               <th>Content</th>
+	               <th>Category</th>
+	               <th>Topic</th>
+	               <th>Author</th>
+	               <th>Status</th>
+	               <th>[Edit | View | Delete]</th>
+	            </tr>
+	             <tr th:each ="test : ${englishtests}">
+	               <td th:utext="${test.getId()}">...</td>
+	               <td th:utext="${test.getContent()}">...</td>
+	               <td th:utext="${test.getCategoryName()}">...</td>
+	               <td th:utext="${test.getTopicName()}">...</td>
+	               <td th:utext="${test.getAuthorName()}">...</td>
+	               <td th:utext="${test.getStatus()}">...</td>
+	               <td> 
+	               <a th:href="@{/ela/edit/{id}(id=${test.getId()})}">Edit</a>
+	               |
+	               <a th:href="@{/ela/detail/{id}(id=${test.getId()})}">View</a>
+	               |
+	               <a th:href="@{/ela/delete/{id}(id=${test.getId()})}">Delete</a>
+	                 
+	                 
+	               </td>
+	            </tr> 
+	         </table>
+	      </div>
+      
+      </div>
+      
+      <th:block th:include="/_footer"></th:block>
+   </body>
+</html>
